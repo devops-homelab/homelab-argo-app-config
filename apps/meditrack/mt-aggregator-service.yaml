@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: mt-aggregator-service
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/meditrack-org/mt-application-gitops
+    targetRevision: main
+    path: charts/application/meditrack/mt-aggregator-service
+    helm:
+      valueFiles:
+        - values/values.yaml
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: mt-aggregator-service
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+  revisionHistoryLimit: 3

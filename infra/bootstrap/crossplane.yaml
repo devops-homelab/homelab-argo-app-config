@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: crossplane
+  namespace: argocd
+spec:
+  project: default
+  sources:
+  - helm:
+      valueFiles:
+        - $values/charts/infra/meditrack/crossplane/crossplane.yaml
+    repoURL: https://charts.crossplane.io/stable
+    targetRevision: 1.13.2
+    chart: crossplane
+  - repoURL: "https://github.com/meditrack-org/mt-application-gitops/"
+    targetRevision: main
+    ref: values
+    path: charts/infra/meditrack/crossplane
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: crossplane-system
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

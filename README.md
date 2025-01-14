@@ -1,1 +1,1 @@
-# homelab-argo-app-config
+# mt-argocd-applications
