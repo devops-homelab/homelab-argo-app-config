@@ -6,9 +6,9 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/meditrack-org/mt-application-gitops
+    repoURL: https://github.com/homelab-devops/homelab-gitops
     targetRevision: main
-    path: charts/application/meditrack/mt-doctor-record-service
+    path: charts/app/meditrack/mt-doctor-record-service
     helm:
       valueFiles:
         - values/values.yaml
