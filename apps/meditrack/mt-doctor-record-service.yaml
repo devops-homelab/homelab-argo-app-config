@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/homelab-devops/homelab-gitops
+    repoURL: https://github.com/devops-homelab/homelab-gitops
     targetRevision: main
     path: charts/apps/meditrack/mt-doctor-record-service
     helm:
