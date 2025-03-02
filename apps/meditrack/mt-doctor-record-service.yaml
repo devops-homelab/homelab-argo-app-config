@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: mt-doctor-record-service
+  name: mt-doctor-record-service-dev
   namespace: argocd
 spec:
   project: default
@@ -11,10 +11,10 @@ spec:
     path: charts/apps/meditrack/mt-doctor-record-service
     helm:
       valueFiles:
-        - values/values.yaml
+        - values/values-dev.yaml
   destination:
     server: https://kubernetes.default.svc
-    namespace: mt-doctor-record-service
+    namespace: mt-doctor-record-service-dev
   syncPolicy:
     automated:
       prune: true
