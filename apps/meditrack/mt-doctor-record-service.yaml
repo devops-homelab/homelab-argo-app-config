@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/homelab-devops/homelab-gitops
     targetRevision: main
-    path: charts/app/meditrack/mt-doctor-record-service
+    path: charts/apps/meditrack/mt-doctor-record-service
     helm:
       valueFiles:
         - values/values.yaml
