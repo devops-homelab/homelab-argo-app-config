@@ -3,6 +3,7 @@ kind: Application
 metadata:
   name: actions-runner-controller
   namespace: argocd
+  argocd.argoproj.io/sync-wave: "2"
 spec:
   project: default
   sources:
