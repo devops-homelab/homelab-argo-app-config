@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: 'https://github.com/devops-homelab/homelab-gitops/'
     targetRevision: main
-    path: charts/infra/kyverno-policies
+    path: charts/infra/bootstrap/kyverno/policies
   destination:
     server: https://kubernetes.default.svc
     namespace: kyverno
