@@ -3,8 +3,6 @@ kind: Application
 metadata:
   name: actions-runner-controller
   namespace: argocd
-  annotations:
-    argocd.argoproj.io/sync-options: Replace=true
 spec:
   project: default
   sources:
@@ -27,3 +25,4 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
+      - Replace=true
