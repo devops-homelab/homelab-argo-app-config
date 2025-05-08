@@ -15,10 +15,10 @@ spec:
   destination:
     server: https://kubernetes.default.svc
     namespace: mt-doctor-record-service-dev
-  # syncPolicy:
-  #   automated:
-  #     prune: true
-  #     selfHeal: true
-  #   syncOptions:
-  #     - CreateNamespace=true
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
   revisionHistoryLimit: 3
