@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kong
+  namespace: argocd
+spec:
+  project: default
+  sources:
+  - helm:
+      valueFiles:
+        - $values/charts/infra/bootstrap/kong/kong.yaml
+    repoURL: https://charts.konghq.com
+    targetRevision: 2.48.0
+    chart: kong
+  - repoURL: "https://github.com/devops-homelab/homelab-gitops/"
+    targetRevision: main
+    ref: values
+    path: charts/infra/bootstrap/kong
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: kong
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - Replace=true
