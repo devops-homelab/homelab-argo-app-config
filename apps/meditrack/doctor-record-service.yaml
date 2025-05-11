@@ -1,20 +1,20 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: mt-doctor-record-service-dev
+  name: doctor-record-service-dev
   namespace: argocd
 spec:
   project: default
   source:
     repoURL: https://github.com/devops-homelab/homelab-gitops
     targetRevision: main
-    path: charts/apps/meditrack/mt-doctor-record-service
+    path: charts/apps/meditrack/doctor-record-service
     helm:
       valueFiles:
         - values/values-dev.yaml
   destination:
     server: https://kubernetes.default.svc
-    namespace: mt-doctor-record-service-dev
+    namespace: doctor-record-service-dev
   syncPolicy:
     automated:
       prune: true

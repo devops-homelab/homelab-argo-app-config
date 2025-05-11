@@ -1,20 +1,20 @@
 # apiVersion: argoproj.io/v1alpha1
 # kind: Application
 # metadata:
-#   name: mt-aggregator-service
+#   name: appointment-scheduling-service
 #   namespace: argocd
 # spec:
 #   project: default
 #   source:
-#     repoURL: https://github.com/meditrack-org/mt-application-gitops
+#     repoURL: https://github.com/meditrack-org/application-gitops
 #     targetRevision: main
-#     path: charts/application/meditrack/mt-aggregator-service
+#     path: charts/application/meditrack/appointment-scheduling-service
 #     helm:
 #       valueFiles:
 #         - values/values.yaml
 #   destination:
 #     server: https://kubernetes.default.svc
-#     namespace: mt-aggregator-service
+#     namespace: appointment-scheduling-service
 #   syncPolicy:
 #     automated:
 #       prune: true

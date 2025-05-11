@@ -1,20 +1,20 @@
 # apiVersion: argoproj.io/v1alpha1
 # kind: Application
 # metadata:
-#   name: mt-appointment-scheduling-service
+#   name: notification-service
 #   namespace: argocd
 # spec:
 #   project: default
 #   source:
-#     repoURL: https://github.com/meditrack-org/mt-application-gitops
+#     repoURL: https://github.com/meditrack-org/application-gitops
 #     targetRevision: main
-#     path: charts/application/meditrack/mt-appointment-scheduling-service
+#     path: charts/application/meditrack/notification-service
 #     helm:
 #       valueFiles:
 #         - values/values.yaml
 #   destination:
 #     server: https://kubernetes.default.svc
-#     namespace: mt-appointment-scheduling-service
+#     namespace: notification-service
 #   syncPolicy:
 #     automated:
 #       prune: true
