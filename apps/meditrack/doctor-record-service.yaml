@@ -11,7 +11,7 @@ spec:
   sources:
   - helm:
       valueFiles:
-        - $values/charts/apps/meditrack/doctor-record-service/values-dev.yaml
+        - $values/charts/apps/meditrack/doctor-record-service/values/values-dev.yaml
     chart: common-application-charts
     repoURL: https://raw.githubusercontent.com/devops-homelab/homelab-helm-charts/gh-pages
     targetRevision: 1.0.4
