@@ -46,7 +46,7 @@ This directory contains bootstrap configurations for essential infrastructure co
 - A Kubernetes cluster accessible from your environment.
 
 ### Deploying Applications
-To deploy an application, apply the corresponding manifest file using `kubectl`:
+The `apps/` directory is monitored by a parent ArgoCD application. Any changes to the manifests in this directory will automatically trigger updates in the cluster. To manually apply changes, you can still use:
 
 ```bash
 kubectl apply -f apps/meditrack/<service-name>.yaml
@@ -55,7 +55,7 @@ kubectl apply -f apps/meditrack/<service-name>.yaml
 Replace `<service-name>` with the desired service manifest file.
 
 ### Bootstrapping Infrastructure
-To bootstrap infrastructure components, apply the YAML files in the `infra/bootstrap/` directory:
+The `infra/` directory is also monitored by a parent ArgoCD application. Changes to the manifests in this directory will automatically trigger updates in the cluster. To manually apply changes, you can use:
 
 ```bash
 kubectl apply -f infra/bootstrap/<component>.yaml
