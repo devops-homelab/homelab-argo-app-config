@@ -8,7 +8,7 @@ spec:
   sources:
   - helm:
       valueFiles:
-        - $values/charts/infra/bootstrap/kyverno/kyverno.yaml
+        - $values/charts/infra/bootstrap/kyverno/kyverno-values.yaml
     repoURL: https://kyverno.github.io/kyverno/
     targetRevision: 3.4.0
     chart: kyverno
