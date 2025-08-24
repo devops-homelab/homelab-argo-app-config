@@ -1,29 +1,29 @@
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: doctor-record-service-dev
-  namespace: argocd
-spec:
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: doctor-record-service-dev
-  project: default
-  sources:
-  - helm:
-      valueFiles:
-        - $values/charts/apps/meditrack/doctor-record-service/values-dev.yaml
-    chart: common-application-charts
-    repoURL: https://raw.githubusercontent.com/devops-homelab/homelab-helm-charts/gh-pages
-    targetRevision: 1.0.6
-  - repoURL: 'https://github.com/devops-homelab/homelab-gitops/'
-    path: charts/apps/meditrack/doctor-record-service/
-    targetRevision: main
-    ref: values   
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
-    syncOptions:
-      - CreateNamespace=true
-      - PruneLast=true
-  revisionHistoryLimit: 5
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   name: doctor-record-service-dev
+#   namespace: argocd
+# spec:
+#   destination:
+#     server: https://kubernetes.default.svc
+#     namespace: doctor-record-service-dev
+#   project: default
+#   sources:
+#   - helm:
+#       valueFiles:
+#         - $values/charts/apps/meditrack/doctor-record-service/values-dev.yaml
+#     chart: common-application-charts
+#     repoURL: https://raw.githubusercontent.com/devops-homelab/homelab-helm-charts/gh-pages
+#     targetRevision: 1.0.6
+#   - repoURL: 'https://github.com/devops-homelab/homelab-gitops/'
+#     path: charts/apps/meditrack/doctor-record-service/
+#     targetRevision: main
+#     ref: values   
+#   syncPolicy:
+#     automated:
+#       prune: true
+#       selfHeal: true
+#     syncOptions:
+#       - CreateNamespace=true
+#       - PruneLast=true
+#   revisionHistoryLimit: 5
