@@ -14,7 +14,7 @@ spec:
         - $values/charts/apps/meditrack/doctor-record-service/values-dev-gateway.yaml
     chart: common-application-charts
     repoURL: https://raw.githubusercontent.com/devops-homelab/homelab-helm-charts/gh-pages
-    targetRevision: 1.0.12
+    targetRevision: 1.0.24
   - repoURL: 'https://github.com/devops-homelab/homelab-gitops/'
     path: charts/apps/meditrack/doctor-record-service/
     targetRevision: main
