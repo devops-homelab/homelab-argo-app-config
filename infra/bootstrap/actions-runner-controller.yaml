@@ -1,28 +1,28 @@
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: actions-runner-controller
-  namespace: argocd
-spec:
-  project: default
-  sources:
-  - helm:
-      valueFiles:
-        - $values/charts/infra/bootstrap/actions-runner-controller/actions-runner-controller-values.yaml
-    repoURL: https://actions-runner-controller.github.io/actions-runner-controller
-    targetRevision: 0.23.7
-    chart: actions-runner-controller
-  - repoURL: "https://github.com/devops-homelab/homelab-gitops/"
-    targetRevision: main
-    ref: values
-    path: charts/infra/bootstrap/actions-runner-controller
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: actions-runner-system
-  syncPolicy:
-    # automated:
-    #   prune: true
-    #   selfHeal: true
-    syncOptions:
-      - CreateNamespace=true
-      - Replace=true
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   name: actions-runner-controller
+#   namespace: argocd
+# spec:
+#   project: default
+#   sources:
+#   - helm:
+#       valueFiles:
+#         - $values/charts/infra/bootstrap/actions-runner-controller/actions-runner-controller-values.yaml
+#     repoURL: https://actions-runner-controller.github.io/actions-runner-controller
+#     targetRevision: 0.23.7
+#     chart: actions-runner-controller
+#   - repoURL: "https://github.com/devops-homelab/homelab-gitops/"
+#     targetRevision: main
+#     ref: values
+#     path: charts/infra/bootstrap/actions-runner-controller
+#   destination:
+#     server: https://kubernetes.default.svc
+#     namespace: actions-runner-system
+#   syncPolicy:
+#     # automated:
+#     #   prune: true
+#     #   selfHeal: true
+#     syncOptions:
+#       - CreateNamespace=true
+#       - Replace=true
